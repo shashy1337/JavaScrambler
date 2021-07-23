@@ -12,7 +12,7 @@ public class Scrambler {
         this.stringToScramble = stringToScramble;
     }
 
-    public void crypt() {
+    public String crypt() {
         char[] letters = stringToScramble.toCharArray();
         for (char chrs : letters) {
             if (chrs == 'A') {
@@ -32,10 +32,10 @@ public class Scrambler {
             }
 
         }
-        System.out.println(cryptedString.toString());
+        return cryptedString.toString();
     }
 
-    public void decrypt() {
+    public String decrypt() {
         char[] lettersCryptedString = cryptedString.toString().toCharArray();
         for (char letters : lettersCryptedString) {
             if (letters == '0') {
@@ -51,6 +51,6 @@ public class Scrambler {
             } else decryptedString.append(letters);
 
         }
-        System.out.println(decryptedString.toString());
+        return decryptedString.toString();
     }
 }
