@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Calendar;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class Main {
         File file2 = new File("src/Scrambler", "deCryptedTextInTxt.txt");
 
         if (file.exists() && file2.exists()){
-            ;
+
         } else {
             System.out.println("isCreated CryptedTextTxt " + file.createNewFile());
             System.out.println("isCreated deCryptedTextTxt " + file2.createNewFile());
@@ -31,8 +32,10 @@ public class Main {
 
 
         try {
+            System.out.println("Date of creation the CryptedWord" + Calendar.getInstance().getTime());
             Files.write(Paths.get("src/Scrambler/CryptedTextInTxt.txt"),
                     scrambler.crypt().getBytes(), StandardOpenOption.APPEND);
+            System.out.println("Date of creation the deCryptedWord" + Calendar.getInstance().getTime());
             Files.write(Paths.get("src/Scrambler/deCryptedTextInTxt.txt"),
                      scrambler.decrypt().getBytes(), StandardOpenOption.APPEND);
         }  catch (IOException ignored){}
